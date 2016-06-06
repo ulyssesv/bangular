@@ -1,0 +1,27 @@
+<div class="__map-page" map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2KXE7gKUF9N6_vW_F_OxSzOXKUw_vCkA">
+
+  <ng-map
+    map-type-control="false"
+    default-style="false"
+    zoom="18"
+    center="[37.78484, -122.4068299]"
+    trigger-resize="true"
+    on-dragend="mapController.loadStops()">
+
+    <marker
+      ng-repeat="stop in mapController.stops"
+      position="[{{stop['latitude']}}, {{stop['longitude']}}]"
+      data="{{stop}}"
+      on-click="mapController.showStop(stop)"
+      title="{{stop['title']}}"
+      icon="{url:'assets/img/bus.png'}">
+    </marker>
+  </ng-map>
+
+  <div class="stop-information-pane" ng-show="mapController.currentStop">
+    <a ng-click="mapController.currentStop=null;" class="_close"><img src="assets/img/close.png"></a>
+    <div class="_content">
+      {{mapController.currentStop.title}}
+    </div>
+  </div>
+</div>
