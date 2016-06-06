@@ -13,11 +13,11 @@
 
     NgMap.getMap().then(function(evtMap) {
       map = evtMap;
+      vm.stops = vm.loadStops();
     });
 
     vm.loadStops = function() {
-      event = this;
-      StopService.getStops(this.center.lat(), this.center.lng()).then(function(response) {
+      StopService.getStops(map.center.lat(), map.center.lng()).then(function(response) {
         vm.stops = response.data;
       }, function(error) {
         $mdDialog.show(
