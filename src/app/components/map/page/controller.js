@@ -45,10 +45,7 @@
           .clickOutsideToClose(true)
           .title("Error")
           .textContent(error.message)
-          .ariaLabel("Error Alert")
-          .ok("Ok")
-          .targetEvent(ev)
-        );
+          .ok("Ok"));
       });
     }
 
@@ -66,9 +63,7 @@
           .clickOutsideToClose(true)
           .title("Error")
           .textContent(error.message)
-          .ariaLabel("Error Alert")
           .ok("Ok")
-          .targetEvent(ev)
         );
       });
     }
