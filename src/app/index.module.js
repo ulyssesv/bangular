@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-      .module('webapp', ['ui.router', 'ngMaterial', 'ngMap']);
+      .module('webapp', ['ui.router', 'ngMaterial', 'ngMap', 'ngProgress']);
 
 })();

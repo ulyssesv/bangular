@@ -11,29 +11,22 @@
     display: block;
   }
 
-  .stop-information-pane {
+  .stop-pane {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 300px;
-    height: 500px;
     z-index: 100;
-    padding: 20px;
-    background-color: #fff;
     box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.2);
 
-    ._close {
-      position: absolute;
-      right: 4px;
-      top: 4px;
-      display: block;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
+    md-toolbar {
+      background-color: #1976D2;
     }
-
-    ._content {
-
+    md-content {
+      height: 600px;
+      overflow: scroll;
+    }
+    md-list-item {
+      padding: 16px;
     }
   }
 }

@@ -18,6 +18,13 @@
         }
       });
     }
+
+    this.getStopDepartures = function(stop) {
+      return $http({
+        method: 'get',
+        url: settings.API_URL + '/stops/' + stop.tag + '/departures/'
+      });
+    }
   }
 
 })();

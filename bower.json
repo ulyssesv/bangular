@@ -6,7 +6,8 @@
     "angular-ui-router": "~0.3.1",
     "angular-material": "^1.0.9",
     "moment": "~2.13.0",
-    "ngmap": "^1.17.3"
+    "ngmap": "^1.17.3",
+    "ngprogress": "^1.1.3"
   },
   "resolutions": {
     "angular": "~1.5.6"

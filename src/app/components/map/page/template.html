@@ -18,10 +18,42 @@
     </marker>
   </ng-map>
 
-  <div class="stop-information-pane" ng-show="mapController.currentStop">
-    <a ng-click="mapController.currentStop=null;" class="_close"><img src="assets/img/close.png"></a>
-    <div class="_content">
-      {{mapController.currentStop.title}}
-    </div>
+  <div class="stop-pane" ng-show="mapController.currentStop">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-disabled="true">
+          <img src="assets/img/bus-white.png">
+        </md-button>
+        <h2 class="md-toolbar-tools">
+          <span>{{mapController.currentStop.title}} ({{mapController.currentStop.distance}}m)</span>
+        </h2>
+        <span flex></span>
+          <md-button class="md-icon-button" ng-click="mapController.currentStop=null;">
+            <img src="assets/img/close.png">
+          </md-button>
+      </div>
+    </md-toolbar>
+    <md-content flex md-theme="default">
+      <md-list>
+        <div ng-repeat="stop in mapController.currentStop.departures.stops">
+          <p style="padding: 16px;" ng-show="!stop.routes.length">No data available for this stop.</p>
+          <div ng-repeat="(tag, route) in stop.routes">
+            <md-list-item class="md-3-line" ng-repeat="trip in route.trips">
+              <div class="md-list-item-text">
+                <h3>{{route.title}}</h3>
+                <h4 style="font-weight: bold; color: #333;">{{trip.direction_title}}</h4>
+                <h4>{{trip.eta_timestamp|momentToNow}} ({{trip.eta_timestamp | momentUnixFormat:'h:mm a'}})</h4>
+                <p>
+                  <span ng-show="trip.is_affected_by_layover">affected by layover | </span>
+                  <span ng-show="trip.is_departure">departing from stop | </span>
+                  Vehicle: {{trip.vehicle}} | {{route.agency_title}}
+                </p>
+              </div>
+              <md-divider></md-divider>
+            </md-list-item>
+          </div>
+        </div>
+      </md-list>
+    </md-content>
   </div>
 </div>
