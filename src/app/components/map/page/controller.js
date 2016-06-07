@@ -26,6 +26,7 @@
     vm.currentStop = null;
     vm.progressbar = ngProgressFactory.createInstance();
     vm.progressbar.setColor('#1976D2');
+    vm.noRoutes = true;
 
     NgMap.getMap().then(function(evtMap) {
       map = evtMap;
@@ -52,6 +53,7 @@
     vm.showStop = function(e, stop) {
       vm.progressbar.start();
       StopService.getStopDepartures(stop).then(function(response) {
+        vm.noRoutes = true;
         vm.progressbar.complete();
         vm.currentStop = stop;
         vm.currentStop.departures = response.data;

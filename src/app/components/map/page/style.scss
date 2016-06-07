@@ -29,7 +29,10 @@
       padding: 16px;
     }
     md-divider {
-       display: block !important;
+      display: block !important;
+    }
+    ._empty {
+      margin: 16px;
     }
   }
 }

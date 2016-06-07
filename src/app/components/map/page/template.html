@@ -35,9 +35,11 @@
     </md-toolbar>
     <md-content flex md-theme="default">
       <md-list>
-        <div ng-repeat="stop in mapController.currentStop.departures.stops">
+        <p class="_empty" ng-show="mapController.noRoutes">No data available for this stop.</p>
+        <div id="md-list-container" ng-repeat="stop in mapController.currentStop.departures.stops">
           <div ng-repeat="(tag, route) in stop.routes">
             <md-list-item class="md-3-line" ng-repeat="trip in route.trips">
+              <div ng-init="mapController.noRoutes=false"></div>
               <div class="md-list-item-text">
                 <h3>{{route.title}}</h3>
                 <h4 style="font-weight: bold; color: #333;">{{trip.direction_title}}</h4>
