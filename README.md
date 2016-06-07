@@ -1,6 +1,6 @@
 # BAngular
 
-    Frontend for [BFlask](https://github.com/ulyssesv/bflask/) API.
+    Frontend for BFlask API.
 
 This app displays a map and bus stops and departure times from NextBus database using BFlask API.
 
