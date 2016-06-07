@@ -36,7 +36,6 @@
     <md-content flex md-theme="default">
       <md-list>
         <div ng-repeat="stop in mapController.currentStop.departures.stops">
-          <p style="padding: 16px;" ng-show="!stop.routes.length">No data available for this stop.</p>
           <div ng-repeat="(tag, route) in stop.routes">
             <md-list-item class="md-3-line" ng-repeat="trip in route.trips">
               <div class="md-list-item-text">
